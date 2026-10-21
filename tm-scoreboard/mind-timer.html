@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Mental timer — key log</title>
+		<link href="./css/mind-timer.css" rel="stylesheet" type="text/css">
+	</head>
+	<body>
+		<div class="wrap">
+			<h1>Mental timer</h1>
+			<p class="lead">
+				Open this page in its own window while you run an activity. Participants count silently to your target time (for example one minute) and raise a finger when they think they are there.
+				Use <kbd style="background:#3f3f46;padding:0.1rem 0.35rem;border-radius:4px">Space</kbd> to start and pause the stopwatch. Press <strong>M</strong>, <strong>Z</strong>, or <strong>D</strong> when each person raises a finger to record their elapsed time and how early or late they were versus the target you enter below.
+			</p>
+
+			<section class="panel">
+				<h2>Target time</h2>
+				<p class="hint" style="margin-bottom:0.65rem">Delta = elapsed − target. Negative means they raised early; positive means late.</p>
+				<div class="target-row">
+					<label>
+						Target (seconds)
+						<input type="number" id="target-sec" class="num" min="0" step="0.01" value="60">
+					</label>
+				</div>
+			</section>
+
+			<section class="panel">
+				<h2>Stopwatch</h2>
+				<div class="display-wrap">
+					<div id="elapsed" class="elapsed" aria-live="polite">0.00 s</div>
+					<div id="status" class="status paused">Paused — Space to start</div>
+				</div>
+				<p class="hint" style="margin-top:1rem">Keyboard shortcuts are ignored while the target field is focused.</p>
+				<div class="keys-grid">
+					<div class="key-chip"><kbd>Space</kbd> Start / pause</div>
+					<div class="key-chip"><kbd>M</kbd> Log participant M</div>
+					<div class="key-chip"><kbd>Z</kbd> Log participant Z</div>
+					<div class="key-chip"><kbd>D</kbd> Log participant D</div>
+				</div>
+				<div class="btn-row">
+					<button type="button" id="btn-reset-timer" class="btn secondary">Reset stopwatch</button>
+					<button type="button" id="btn-clear-log" class="btn danger">Clear log</button>
+				</div>
+			</section>
+
+			<section class="panel">
+				<h2>Log</h2>
+				<p id="empty-log" class="empty-log">No entries yet. Start the timer, then press M, Z, or D.</p>
+				<div class="log-wrap">
+					<table class="log" aria-label="Logged times">
+						<thead>
+							<tr>
+								<th>Key</th>
+								<th>Elapsed</th>
+								<th>Delta vs target</th>
+							</tr>
+						</thead>
+						<tbody id="log-body"></tbody>
+					</table>
+				</div>
+			</section>
+		</div>
+		<script src="./js/mind-timer.js"></script>
+	</body>
+</html>

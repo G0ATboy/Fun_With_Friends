@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Scoreboard — control panel</title>
+		<link rel="shortcut icon" href="favicon.ico">
+		<link href="./css/control.css" rel="stylesheet" type="text/css">
+	</head>
+	<body>
+		<div class="wrap">
+			<h1>Scoreboard control</h1>
+			<p class="lead">
+				Use this page on your laptop. Put <strong>projector</strong> on the TV or second screen and drag that browser tab there.
+			</p>
+
+			<section class="panel">
+				<h2>What shows on the projector</h2>
+				<label class="radio-row"><input type="radio" name="viewMode" value="scoreboard" checked> Pictures and scores</label>
+				<label class="radio-row"><input type="radio" name="viewMode" value="timer"> Red countdown timer</label>
+				<label class="radio-row"><input type="radio" name="viewMode" value="message"> White screen — typed message</label>
+				<p class="hint">Changing this updates the projector right away.</p>
+			</section>
+
+			<section class="panel">
+				<h2>Message for projector</h2>
+				<p class="hint">When “White screen — typed message” is selected, this text fills the projector on a white background (black type). It scales automatically for legibility from about 10 feet on a typical full-screen window.</p>
+				<textarea id="projector-message-input" class="projector-message-input" rows="4" maxlength="2000" spellcheck="true" placeholder="Dan, pour the best fancy beverage into an ice-cold glass for Brett."></textarea>
+			</section>
+
+			<section class="panel">
+				<h2>Scores</h2>
+				<p class="hint">Change numbers here, then press <strong>Update scores on projector</strong> to run the sliding animation.</p>
+				<div id="contestant-rows"></div>
+				<button type="button" id="btn-add" class="btn secondary">Add person</button>
+				<button type="button" id="btn-commit" class="btn primary">Update scores on projector</button>
+			</section>
+
+			<section class="panel">
+				<h2>Timer</h2>
+				<p class="hint">This switches the projector to the timer, loads the length, shows it for half a second, then starts the countdown. Length also applies when you reset while paused.</p>
+				<div class="timer-row">
+					<label>Minutes <input type="number" id="timer-min" min="0" value="5" class="num"></label>
+					<label>Seconds <input type="number" id="timer-sec" min="0" max="59" value="0" class="num"></label>
+					<button type="button" id="btn-timer-length" class="btn secondary">Send to projector &amp; start</button>
+				</div>
+				<div class="timer-actions">
+					<button type="button" id="btn-timer-start" class="btn primary">Start</button>
+					<button type="button" id="btn-timer-pause" class="btn secondary">Pause</button>
+					<button type="button" id="btn-timer-reset" class="btn secondary">Reset</button>
+				</div>
+			</section>
+
+			<section class="panel muted">
+				<p id="help-storage">Synced via your browser. Keep both tabs open on this computer.</p>
+			</section>
+		</div>
+
+		<input type="file" id="global-file" accept="image/*" hidden>
+
+		<script src="js/sync.js" type="text/javascript"></script>
+		<script src="js/control-app.js" type="text/javascript"></script>
+	</body>
+</html>

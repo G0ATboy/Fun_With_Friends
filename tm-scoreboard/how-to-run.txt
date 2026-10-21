@@ -1,0 +1,40 @@
+TWO-WINDOW SCOREBOARD (PLAIN STEPS)
+===================================
+
+Why not just double-click the HTML files?
+-----------------------------------------
+Chrome treats each file address slightly differently, and the control page and the projector page need to share the same "address family" so they can talk to each other. Running the tiny local server below puts both pages at http://localhost:8765/... which fixes that.
+
+
+What you do each time
+---------------------
+1. Double-click "Start local server.bat" in this folder.
+
+2. A black window opens and stays open. Leave it open while you play.
+   (That window is the tiny server. Closing it stops the pages from loading.)
+
+3. Open Google Chrome (or Microsoft Edge).
+
+4. Put these two addresses into two separate tabs (copy-paste):
+
+   Projector (drag this tab to your external monitor / TV):
+   http://localhost:8765/display.html
+
+   Control panel (keep on your laptop):
+   http://localhost:8765/control.html
+
+5. Make the projector tab full screen if you want (F11 or browser full screen).
+
+
+Using it
+--------
+- Change scores on the control page, then click "Update scores on projector" to play the animation.
+
+- Switch between scoreboard and timer with "What shows on the projector".
+
+- Photos and scores are remembered by the browser (saved storage) until you clear site data.
+
+
+If the batch file says Python was not found
+--------------------------------------------
+Install Python from https://www.python.org/downloads/ and try again, or ask someone technical to help run any simple static file server on port 8765 in this folder.
